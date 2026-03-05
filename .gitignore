@@ -1,0 +1,20 @@
+# Visual Studio and .NET
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+
+# Database files
+*.mdf
+*.ldf
+*.ndf
+
+# Temporary files
+*.tmp
+*.temp
+*.log
