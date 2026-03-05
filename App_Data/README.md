@@ -27,14 +27,24 @@ Data Source=localhost;Initial Catalog=EComJew;Integrated Security=True
 
 The database includes the following tables:
 
-1. **Users** - Customer and user accounts
-2. **Categories** - Product categories
-3. **Products** - Product catalog
-4. **Orders** - Customer orders
-5. **OrderDetails** - Order line items
-6. **ShoppingCart** - Shopping cart items
-7. **Addresses** - Customer shipping addresses
-8. **Reviews** - Product reviews and ratings
+### Authentication Tables:
+1. **Roles** - User roles (Admin, Customer, Manager, Vendor)
+2. **Users** - Customer and user accounts
+3. **AdminUsers** - Admin accounts (separate authentication)
+4. **Vendors** - Vendor accounts (multi-vendor marketplace)
+5. **AdminActivityLog** - Admin activity tracking
+6. **UserActivityLog** - Customer activity tracking
+7. **VendorActivityLog** - Vendor activity tracking
+
+### E-commerce Tables:
+8. **Categories** - Product categories
+9. **Products** - Product catalog
+10. **VendorProducts** - Products managed by vendors (with ItemCode, LotNo)
+11. **Orders** - Customer orders
+12. **OrderDetails** - Order line items
+13. **ShoppingCart** - Shopping cart items
+14. **Addresses** - Customer shipping addresses
+15. **Reviews** - Product reviews and ratings
 
 ## Setup Instructions
 
@@ -48,6 +58,43 @@ Run the following command from the project root:
 1. Open SQL Server Management Studio or Visual Studio
 2. Connect to (LocalDB)\MSSQLLocalDB
 3. Execute the script: `App_Data\CreateEComJewDatabase.sql`
+
+### Option 3: Manual Setup
+1. Create database named `EComJew`
+2. Run the full SQL script
+3. Verify vendors and products are created
+
+---
+
+## ?? Documentation
+
+- **[Authentication Guide](AuthenticationGuide.md)** - Complete guide for Admin, Customer, and Vendor authentication
+- **[Vendor Guide](VendorGuide.md)** - Comprehensive vendor management documentation
+- **[Vendor Product Summary](VENDOR_PRODUCT_SUMMARY.md)** - Overview of 100 sample products
+- **[Vendor Quick Reference](VENDOR_QUICK_REFERENCE.md)** - Quick SQL queries and API examples
+
+---
+
+## ?? Sample Data Included
+
+### Vendors (5 businesses)
+- Premium Jewelers Inc (vendor1)
+- Golden Touch Jewelry (vendor2)
+- Silver Dreams Ltd (vendor3)
+- Diamond Palace (vendor4)
+- Luxury Gems Co (vendor5)
+
+### Products (100 items)
+- 20 products per vendor
+- Mix of Gold (18K, 22K) and Silver (925) items
+- 20 diamond-studded products
+- Price range: $1,010 - $2,000
+- Total inventory: 6,055 units
+
+### Test Credentials
+**Admin**: admin / Admin@123
+**Customer**: customer / Customer@123
+**Vendor**: vendor1 / Vendor@123 (all vendors use same password)
 
 ## Prerequisites
 
